@@ -115,6 +115,13 @@ const loadAddBlog = async (req, res) => {
     console.log(error.message);
   }
 };
+const editBlog = async (req, res) => {
+  try {
+    res.render("editblog", {  });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
 
 
 const addBlog = async (req, res) => {
@@ -134,7 +141,6 @@ console.log(images);
     if (blog) {
       console.log("added");
       res.render("addBlog", {
-        blog,
         message: "blog added successfully.",
       });
     } else {
@@ -149,6 +155,13 @@ console.log(images);
   }
 };
 
+const userLogout = async (req, res) => {
+  adminSession = req.session;
+  adminSession.userId = false;
+  console.log("user Logged out");
+  res.redirect("/login");
+};
+
 module.exports = {
   loadUserLogin,
   loadUserRegistration,
@@ -157,4 +170,6 @@ module.exports = {
   verifyUserLogin,
   loadAddBlog,
   addBlog,
+  userLogout,
+  editBlog,
 };

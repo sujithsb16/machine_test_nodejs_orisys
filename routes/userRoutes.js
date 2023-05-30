@@ -22,6 +22,8 @@ userRoute.get("/login", userController.loadUserLogin);
 userRoute.post("/login", userController.verifyUserLogin);
 
 userRoute.get("/addblog", userController.loadAddBlog);
+userRoute.get("/editblog", userController.editBlog);
+userRoute.get("/logout", userController.userLogout);
 
 
 userRoute.post("/addblog", multer.upload.array('image'),userController.addBlog);

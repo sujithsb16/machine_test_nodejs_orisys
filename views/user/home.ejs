@@ -18,11 +18,19 @@
                   
                 </p>
                 <div class="add-bag d-flex align-items-center">
-                  <a class="add-btn" href="/addblog"
-                    >
-                  </a>
+
                   <span class="add-text text-uppercase"></span>
                 </div>
+                <a class="add-btn" href="/addblog"
+                  >
+                  <h2>click to add a blog</h2>
+                 
+                </a>
+                <a class="add-btn" href="/logout"
+                  >
+                  <h2>LogOut</h2>
+                 
+                </a>
               </div>
             </div>
             <div class="col-lg-7">
@@ -105,9 +113,9 @@
 
         
       
-        <% if(blogs.length > 0){ for(let key of products){ %> 
+        <% if(blogs.length > 0){ for(let key of blogs){ %> 
         
-          <% if(key.isAvailable ==1){ %>
+       
       
 
           <div class="col-lg-3 col-md-6">
@@ -116,48 +124,35 @@
          
           
 
-          <div class="single-product">
+          <div class="single-product" style="background-color: aqua;">
 
             
             <a href="/productDetails?id=<%=key._id%>" > <img
               class="img-fluid"
-              src="/admin/multer/img/<%= key.image[0] %>"
+              src="/admin/multer/img/<%= key.image %>"
               alt=""
               style="width: 255px;height: 255px;"
             /></a>
             <div class="product-details">
-              <h6><%= key.name %></h6>
+              <h6><%= key.title %></h6>
               <div class="price">
-                <h6>₹<%= key.price %></h6>
-                <div class="nk-product-rating" data-rating="<%= key.rating %>">
-									<% for(let count=0; count<key.rating; count++) { %>
-										<i class="fa fa-star"></i>
-										<% } %> 
-                  </div>
+                <h6><%= key.content %></h6>
+                
               </div>
               <div class="prd-bottom">
-                <a href="/addToCart?id=<%= key._id %>" class="social-info">
-                  <span class="ti-bag"></span>
-                  <p class="hover-text">add to bag</p>
-                </a>
-                <a href="/addToWishlist?id=<%= key._id %>" class="social-info">
-                  <span class="lnr lnr-heart"></span>
-                  <p class="hover-text">Wishlist</p>
-                </a>
-                
-                <a href="/productDetails?id=<%=key._id%>" class="social-info">
-                  <span class="lnr lnr-move"></span>
-                  <p class="hover-text">details</p>
-                </a>
+                 <h6><%= key.author %></h6>
               </div>
+               <a href="/editblog?id=<%= key.id %>" class="social-info">
+                  <p class="hover-text">Edit blog</p>
+                </a>
             </div>
 
             
           </div>
         </div>
        
-        <% }%> <% } %> <% }else { %>
-            <h1>No products in Database</h1>
+        <% } %> <% }else { %>
+            <h1>No Blogs available</h1>
             <% } %>
 
       </div>
