@@ -1,0 +1,179 @@
+<%- include ('../partials/userHeader.ejs') %>
+
+
+<!-- start banner Area -->
+<section class="banner-area">
+  <div class="container">
+    <div class="row fullscreen align-items-center justify-content-start">
+      <div class="col-lg-12">
+        <div class="active-banner-slider owl-carousel">
+          <!-- single-slide -->
+          <div class="row single-slide align-items-center d-flex">
+            <div class="col-lg-5 col-md-6">
+              <div class="banner-content">
+                <h1>Blogs Cloud <br />Collection!</h1>
+                <p>
+                          <a href="addblog">  <img class="img-fluid" src="/admin/multer/img/ %>" alt="" /></a>  
+
+                  
+                </p>
+                <div class="add-bag d-flex align-items-center">
+                  <a class="add-btn" href="/addblog"
+                    >
+                  </a>
+                  <span class="add-text text-uppercase"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <!-- <div class="banner-img">
+                <img class="img-fluid" src="img/banner/banner-img.png" alt="" />
+              </div> -->
+            </div>
+          </div>
+          <!-- single-slide -->
+          <div class="row single-slide">
+            <div class="col-lg-5">
+              <div class="banner-content">
+                <h1>Nike New <br />Collection!</h1>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation.
+                </p>
+                <div class="add-bag d-flex align-items-center">
+                  <a class="add-btn" href=""
+                    ><span class="lnr lnr-cross"></span
+                  ></a>
+                  <span class="add-text text-uppercase">Add to Bag</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="banner-img">
+                <img class="img-fluid" src="img/banner/baner-img.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><br><br>
+<!-- End banner Area -->
+
+<!-- start features Area -->
+
+<!-- end features Area -->
+
+<!-- Start category Area -->
+
+<section class="exclusive-deal-area">
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center">
+     
+    </div>
+  </div>
+</section>
+<!-- End category Area -->
+
+
+
+<!-- start product Area -->
+<section class="owl-carousel product-area">
+
+  <!-- single product slide -->
+
+  <div class="single-product-slider">
+
+
+    <div class="container">
+      <div class="row justify-content-center" >
+        <div class="col-lg-6 text-center">
+          <div class="section-title">
+            <h1>Latest Blogs</h1>
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row"  >
+
+         <!-- single product -->
+
+        
+      
+        <% if(blogs.length > 0){ for(let key of products){ %> 
+        
+          <% if(key.isAvailable ==1){ %>
+      
+
+          <div class="col-lg-3 col-md-6">
+
+       
+         
+          
+
+          <div class="single-product">
+
+            
+            <a href="/productDetails?id=<%=key._id%>" > <img
+              class="img-fluid"
+              src="/admin/multer/img/<%= key.image[0] %>"
+              alt=""
+              style="width: 255px;height: 255px;"
+            /></a>
+            <div class="product-details">
+              <h6><%= key.name %></h6>
+              <div class="price">
+                <h6>₹<%= key.price %></h6>
+                <div class="nk-product-rating" data-rating="<%= key.rating %>">
+									<% for(let count=0; count<key.rating; count++) { %>
+										<i class="fa fa-star"></i>
+										<% } %> 
+                  </div>
+              </div>
+              <div class="prd-bottom">
+                <a href="/addToCart?id=<%= key._id %>" class="social-info">
+                  <span class="ti-bag"></span>
+                  <p class="hover-text">add to bag</p>
+                </a>
+                <a href="/addToWishlist?id=<%= key._id %>" class="social-info">
+                  <span class="lnr lnr-heart"></span>
+                  <p class="hover-text">Wishlist</p>
+                </a>
+                
+                <a href="/productDetails?id=<%=key._id%>" class="social-info">
+                  <span class="lnr lnr-move"></span>
+                  <p class="hover-text">details</p>
+                </a>
+              </div>
+            </div>
+
+            
+          </div>
+        </div>
+       
+        <% }%> <% } %> <% }else { %>
+            <h1>No products in Database</h1>
+            <% } %>
+
+      </div>
+      
+    </div>
+  </div>
+
+</section>
+
+
+
+
+<!-- Start related-product Area -->
+<section class="related-product-area section_gap_bottom">
+  
+</section>
+<!-- End related-product Area -->
+
+
